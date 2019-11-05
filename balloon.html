@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my balloon</title>
+</head>
+<body>
+<p style="font-size: 20px; margin: 0">🎈</p>
+
+<script>
+
+    const balloon = document.querySelector('p');
+
+    let fontSize = 20;
+
+    const changeBalloon = (event) => {
+        event.preventDefault();
+        console.log(event);
+        if (event.key === "ArrowUp") {
+            console.log('Up');
+            fontSize++;
+            balloon.style.fontSize = fontSize + "px";
+        }
+
+        if (event.key === "ArrowDown") {
+            console.log('Down');
+            fontSize--;
+            balloon.style.fontSize = fontSize + "px";
+        }
+
+        if (fontSize === 150) {
+            balloon.textContent = '💥';
+            document.removeEventListener("keydown", changeBalloon);
+        }
+    }
+
+    document.addEventListener("keydown", changeBalloon);
+</script>
+</body>
+</html>

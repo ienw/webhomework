@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .btn {
+            padding: 10px 20px;
+            margin: 3px;
+            border: 1px solid #333;
+            width: 300px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<tab-panel>
+    <div data-tabname="one">Tab one</div>
+    <div data-tabname="two">Tab two</div>
+    <div data-tabname="three">Tab three</div>
+</tab-panel>
+<script>
+    function asTabs(node) {
+        const tabs = Array.prototype.slice.call(node.children);
+        tabs.forEach(tab => {
+            tab.style.display = 'none'
+
+            const el = document.createElement("div")
+            el.className = "btn"
+            el.textContent = tab.textContent
+
+            el.addEventListener('click', () => {
+                console.log("clicked", node)
+                if (tab.style.display == "none") {
+                    tab.style.display = "block"
+                } else {
+                    tab.style.display = "none"
+                }
+            })
+
+            node.insertBefore(el, tab)
+        })
+    }
+    asTabs(document.querySelector("tab-panel"));
+</script>
+</body>
+</html>

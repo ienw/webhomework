@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    body {
+        background: antiquewhite;
+    }
+    .trail { /* className for the trail elements */
+        position: absolute;
+        height: 8px; width: 8px;
+        border-radius: 50%;
+        background: hotpink;
+    }
+    body {
+        height: 300px;
+    }
+</style>
+
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+<div class="trail"></div>
+
+<script>
+    const trails = document.querySelectorAll(".trail");
+
+    let index = 0
+
+    const onMove = (event) =>{
+        const x = event.clientX
+        const y = event.clientY
+
+        trails[index].style.top = y + 'px'
+        trails[index].style.left = x + 'px'
+
+        index++
+        if (index > trails.length - 1) {
+            index = 0;
+        }
+
+    }
+    document.addEventListener("mousemove", onMove)
+</script>
+</body>
+</html>
